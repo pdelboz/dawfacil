@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Manual Completo de CSS, Flexbox y Grid — DAWfacil (Estilo W3Schools)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#05080E] text-slate-100 font-sans min-h-screen selection:bg-teal-500 selection:text-black">
+
+  <!-- Navegación Superior -->
+  <header class="border-b border-slate-800/80 bg-[#05080E]/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-emerald-400 font-mono font-bold text-xl flex items-center gap-1.5">
+        <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-2 py-0.5 rounded-md text-sm">&gt;_</span>
+        <span>DAW<span class="text-white">facil</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Inicio</a>
+        <a href="lenguajes.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Lenguajes</a>
+        <a href="guias.html" class="text-emerald-400 font-semibold">Guías</a>
+        <a href="ejercicios.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Ejercicios</a>
+        <a href="recursos.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Recursos</a>
+      </nav>
+      <span class="inline-flex items-center gap-1.5 text-xs font-mono text-teal-400 bg-teal-950/60 border border-teal-500/30 px-3 py-1.5 rounded-full">Manual Completo • CSS3 / Maquetación</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 lg:grid-cols-12 gap-12">
+    
+    <!-- Contenido Principal de la Guía -->
+    <article class="lg:col-span-9 space-y-12">
+      
+      <!-- Encabezado Principal -->
+      <div class="space-y-4 border-b border-slate-800 pb-8">
+        <div class="flex items-center gap-2 text-xs font-mono text-slate-400">
+          <a href="guias.html" class="hover:text-teal-400">Guías</a>
+          <span>/</span>
+          <span class="text-teal-400">LMARC / DWEC</span>
+        </div>
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-slate-100">
+          CSS3, Flexbox y Grid: Manual de Referencia
+        </h1>
+        <p class="text-slate-400 text-base sm:text-lg">
+          Domina la estilización web avanzada al estilo W3Schools: selectores, modelo de caja, diseño unidimensional con Flexbox y maquetación bidimensional con CSS Grid.
+        </p>
+      </div>
+
+      <!-- MÓDULO 1: SELECTORES Y SINTAXIS -->
+      <section id="selectores" class="space-y-6">
+        <h2 class="text-2xl font-bold font-heading text-teal-400 border-l-4 border-teal-400 pl-3">
+          1. Selectores y Especificidad en CSS
+        </h2>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Los selectores determinan a qué elementos HTML se aplican las reglas de estilo. Su prioridad (especificidad) decide qué regla gana en caso de conflicto.
+        </p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm font-mono border-collapse border border-slate-800 rounded-xl overflow-hidden">
+            <thead>
+            <thead>
+          <tr class="bg-slate-900 text-teal-400 border-b border-slate-800">
+            <th class="p-3">Tipo de Selector</th>
+            <th class="p-3">Sintaxis / Ejemplo</th>
+            <th class="p-3">Descripción</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-slate-800 text-slate-300">
+          <tr>
+            <td class="p-3 text-sky-300 font-bold">Selector de Etiqueta</td>
+            <td class="p-3 text-emerald-300">p { color: white; }</td>
+            <td class="p-3">Afecta a todas las etiquetas HTML de ese tipo.</td>
+          </tr>
+          <tr>
+            <td class="p-3 text-sky-300 font-bold">Selector de Clase</td>
+            <td class="p-3 text-emerald-300">.btn-primary { background: blue; }</td>
+            <td class="p-3">Afecta a cualquier elemento con el atributo <code class="text-teal-300">class="btn-primary"</code>.</td>
+          </tr>
+          <tr>
+            <td class="p-3 text-sky-300 font-bold">Selector de ID</td>
+            <td class="p-3 text-emerald-300">#header-principal { width: 100%; }</td>
+            <td class="p-3">Afecta de forma única al elemento con el <code class="text-teal-300">id="header-principal"</code>.</td>
+          </tr>
+          <tr>
+            <td class="p-3 text-sky-300 font-bold">Selector Descendiente</td>
+            <td class="p-3 text-emerald-300">nav a { text-decoration: none; }</td>
+            <td class="p-3">Afecta a los enlaces <code class="text-teal-300">&lt;a&gt;</code> que se encuentran dentro de <code class="text-teal-300">&lt;nav&gt;</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- MÓDULO 2: MODELO DE CAJA (BOX MODEL) -->
+  <section id="box-model" class="space-y-6">
+    <h2 class="text-2xl font-bold font-heading text-teal-400 border-l-4 border-teal-400 pl-3">
+      2. El Modelo de Caja (Box Model) y Box-Sizing
+    </h2>
+    <p class="text-slate-300 text-sm leading-relaxed">
+      Cada elemento en HTML se representa como una caja rectangular compuesta por: <strong>Content</strong> (Contenido), <strong>Padding</strong> (Relleno interior), <strong>Border</strong> (Borde) y <strong>Margin</strong> (Margen exterior).
+    </p>
+
+    <div class="bg-[#0A0E17] border border-slate-800 rounded-xl p-5 font-mono text-xs sm:text-sm space-y-2">
+      <p class="text-teal-400 font-bold">// Buena práctica universal para evitar errores de cálculo en anchos:</p>
+      <p><span class="text-rose-400">*</span> {</p>
+      <p class="pl-4"><span class="text-sky-400">box-sizing</span>: <span class="text-amber-300">border-box</span>; <span class="text-slate-500">/* Incluye padding y border dentro del ancho total */</span></p>
+      <p>}</p>
+    </div>
+  </section>
+
+  <!-- MÓDULO 3: FLEXBOX -->
+  <section id="flexbox" class="space-y-6">
+    <h2 class="text-2xl font-bold font-heading text-teal-400 border-l-4 border-teal-400 pl-3">
+      3. Flexbox (Diseño Unidimensional)
+    </h2>
+    <p class="text-slate-300 text-sm leading-relaxed">
+      Flexbox está diseñado para distribuir elementos en una sola dirección: una fila (horizontal) o una columna (vertical). Facilita enormemente el centrado y la distribución de espacios.
+    </p>
+
+    <!-- Propiedades de Flexbox -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+      <div class="bg-[#0A0E17] border border-slate-800 p-4 rounded-xl space-y-1">
+        <span class="text-teal-400 font-bold block">justify-content (Eje Principal)</span>
+        <p class="text-slate-400">Alinea los elementos a lo largo del eje principal. Valores comunes: <code class="text-teal-300">flex-start</code>, <code class="text-teal-300">center</code>, <code class="text-teal-300">space-between</code>, <code class="text-teal-300">space-around</code>.</p>
+      </div>
+      <div class="bg-[#0A0E17] border border-slate-800 p-4 rounded-xl space-y-1">
+        <span class="text-teal-400 font-bold block">align-items (Eje Cruzado)</span>
+        <p class="text-slate-400">Alinea los elementos en dirección perpendicular. Valores comunes: <code class="text-teal-300">stretch</code>, <code class="text-teal-300">center</code>, <code class="text-teal-300">flex-start</code>, <code class="text-teal-300">flex-end</code>.</p>
+      </div>
+    </div>
+
+    <div class="bg-[#0A0E17] border border-slate-800 rounded-xl overflow-hidden font-mono text-xs sm:text-sm">
+      <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 text-slate-400">Ejemplo de Contenedor Flexible (Navbar)</div>
+      <div class="p-5 text-slate-300 space-y-1 overflow-x-auto">
+        <p><span class="text-teal-400">.navbar</span> {</p>
+        <p class="pl-4"><span class="text-sky-400">display</span>: flex;</p>
+        <p class="pl-4"><span class="text-sky-400">justify-content</span>: space-between;</p>
+        <p class="pl-4"><span class="text-sky-400">align-items</span>: center;</p>
+        <p class="pl-4"><span class="text-sky-400">padding</span>: 1rem 2rem;</p>
+        <p>}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MÓDULO 4: CSS GRID -->
+  <section id="grid" class="space-y-6">
+    <h2 class="text-2xl font-bold font-heading text-teal-400 border-l-4 border-teal-400 pl-3">
+      4. CSS Grid (Diseño Bidimensional)
+    </h2>
+    <p class="text-slate-300 text-sm leading-relaxed">
+      CSS Grid permite crear estructuras basadas en cuadrículas con filas y columnas simultáneamente, ideal para maquetar layouts web completos o paneles de control.
+    </p>
+
+    <div class="bg-[#0A0E17] border border-slate-800 rounded-xl overflow-hidden font-mono text-xs sm:text-sm">
+      <div class="bg-slate-900 px-4 py-2 border-b border-slate-800 text-slate-400">Grid Adaptable Automático (Responsive)</div>
+      <div class="p-5 text-slate-300 space-y-1 overflow-x-auto">
+        <p><span class="text-teal-400">.grid-tarjetas</span> {</p>
+        <p class="pl-4"><span class="text-sky-400">display</span>: grid;</p>
+        <p class="pl-4"><span class="text-sky-400">grid-template-columns</span>: repeat(<span class="text-amber-300">auto-fit</span>, minmax(<span class="text-amber-300">300px</span>, <span class="text-amber-300">1fr</span>));</p>
+        <p class="pl-4"><span class="text-sky-400">gap</span>: <span class="text-amber-300">2rem</span>;</p>
+        <p>}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Callout de Examen -->
+  <div class="bg-teal-500/10 border border-teal-500/30 rounded-xl p-5 text-sm space-y-2">
+    <div class="flex items-center gap-2 font-mono font-bold text-teal-400">
+      ⚡ Trucos para Exámenes de Lenguajes de Marcas o DWEC
+    </div>
+    <ul class="list-disc list-inside space-y-1 text-slate-300 font-mono text-xs">
+      <li><strong>Flexbox vs Grid:</strong> Usa Flexbox si los elementos van en una sola dirección (fila o columna). Usa Grid si necesitas controlar filas y columnas a la vez.</li>
+      <li><strong>Unidades relativas:</strong> Prioriza el uso de <code class="text-teal-300">rem</code> o <code class="text-teal-300">em</code> en lugar de píxeles fijos (<code class="text-teal-300">px</code>) para garantizar que la web sea accesible y responsive.</li>
+    </ul>
+  </div>
+
+</article>
+
+<!-- Menú Lateral -->
+<aside class="lg:col-span-3 space-y-6">
+  <div class="bg-[#0A0E17] border border-slate-800 rounded-2xl p-5 sticky top-24 space-y-4">
+    <h3 class="text-xs font-mono font-bold text-teal-400 uppercase tracking-wider">Índice del Manual</h3>
+    <nav class="space-y-2 text-xs font-mono text-slate-400">
+      <a href="#selectores" class="block hover:text-white transition">1. Selectores y Especificidad</a>
+      <a href="#box-model" class="block hover:text-white transition">2. Modelo de Caja</a>
+      <a href="#flexbox" class="block hover:text-white transition">3. Flexbox (1D)</a>
+      <a href="#grid" class="block hover:text-white transition">4. CSS Grid (2D)</a>
+    </nav>
+    <div class="pt-4 border-t border-slate-800">
+      <a href="guias.html" class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1">← Volver al Catálogo</a>
+    </div>
+  </div>
+</aside>

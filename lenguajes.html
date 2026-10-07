@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lenguajes — DAWfacil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#05080E] text-slate-100 font-sans min-h-screen relative selection:bg-emerald-500 selection:text-black">
+
+  <!-- Navegación -->
+  <header class="border-b border-slate-800/80 bg-[#05080E]/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-emerald-400 font-mono font-bold text-xl flex items-center gap-1.5">
+        <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-2 py-0.5 rounded-md text-sm">&gt;_</span>
+        <span>DAW<span class="text-white">facil</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Inicio</a>
+        <a href="lenguajes.html" class="text-emerald-400 font-semibold">Lenguajes</a>
+        <a href="guias.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Guías</a>
+        <a href="ejercicios.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Ejercicios</a>
+        <a href="recursos.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Recursos</a>
+      </nav>
+      <span class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-full">v2.4 • FP DAW/DAM</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-16">
+    <div class="text-center space-y-4 mb-16">
+      <span class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-mono text-emerald-400">💻 Stack del Grado Superior</span>
+      <h1 class="text-4xl sm:text-5xl font-extrabold font-heading">Lenguajes clave de <span class="text-emerald-400">DAW y DAM</span></h1>
+      <p class="text-slate-400 text-lg max-w-2xl mx-auto">Módulos indispensables explicados con guías, sintaxis básica y ejercicios prácticos.</p>
+    </div>
+
+    <!-- Grilla completa con los 6 lenguajes -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- 1. JavaScript -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-amber-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-mono font-bold">JS</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">Frontend / Node</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">JavaScript</h2>
+          <p class="text-slate-400 text-sm">DOM, eventos, promesas, código asíncrono y entorno Node.js.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>24 Guías • 50 Ejercicios</span>
+          <a href="guias.html" class="text-amber-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+      <!-- 2. Python -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-sky-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center font-mono font-bold">PY</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">Backend / Scripting</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Python</h2>
+          <p class="text-slate-400 text-sm">Estructuras de datos, scripting, automatización y APIs con Flask.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>18 Guías • 40 Ejercicios</span>
+          <a href="guias.html" class="text-sky-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+      <!-- 3. Java -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-rose-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center font-mono font-bold">JV</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">POO Core</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Java</h2>
+          <p class="text-slate-400 text-sm">Programación orientada a objetos, herencia, polimorfismo y colecciones.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>30 Guías • 65 Ejercicios</span>
+          <a href="guias.html" class="text-rose-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+      <!-- 4. SQL -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-indigo-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center font-mono font-bold">DB</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">Bases de Datos</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">SQL & Relacional</h2>
+          <p class="text-slate-400 text-sm">Diseño DDL/DML, consultas JOIN complejas, subconsultas y triggers.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>20 Guías • 45 Ejercicios</span>
+          <a href="guias.html" class="text-indigo-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+      <!-- 5. HTML & CSS -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-emerald-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-mono font-bold">&lt;/&gt;</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">Maquetación Web</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">HTML5 & CSS3</h2>
+          <p class="text-slate-400 text-sm">HTML semántico, Flexbox, CSS Grid, Responsive Design y Tailwind CSS.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>15 Guías • 30 Ejercicios</span>
+          <a href="guias.html" class="text-emerald-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+      <!-- 6. PHP -->
+      <div class="bg-[#0A0E17] border border-slate-800 hover:border-purple-500/50 rounded-2xl p-6 transition flex flex-col justify-between">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center font-mono font-bold">PHP</span>
+            <span class="text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-400 px-2.5 py-1 rounded-full">Entorno Servidor</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">PHP & Backend</h2>
+          <p class="text-slate-400 text-sm">Formularios, sesiones, cookies, PDO y desarrollo para el módulo DWES.</p>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono text-slate-500">
+          <span>16 Guías • 35 Ejercicios</span>
+          <a href="guias.html" class="text-purple-400 font-semibold hover:underline">Ver guías →</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="border-t border-slate-800/80 bg-[#030509] py-8 text-slate-400 text-xs font-mono text-center">
+    DAWfacil — Sección de Lenguajes
+  </footer>
+</body>
+</html>
