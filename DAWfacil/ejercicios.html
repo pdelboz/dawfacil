@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Banco de Ejercicios y Exámenes Resueltos — DAWfacil</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#05080E] text-slate-100 font-sans min-h-screen selection:bg-emerald-500 selection:text-black">
+
+  <!-- Navegación Superior -->
+  <header class="border-b border-slate-800/80 bg-[#05080E]/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="text-emerald-400 font-mono font-bold text-xl flex items-center gap-1.5">
+        <span class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 px-2 py-0.5 rounded-md text-sm">&gt;_</span>
+        <span>DAW<span class="text-white">facil</span></span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="index.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Inicio</a>
+        <a href="lenguajes.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Lenguajes</a>
+        <a href="guias.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Guías</a>
+        <a href="ejercicios.html" class="text-emerald-400 font-semibold">Ejercicios</a>
+        <a href="recursos.html" class="text-slate-400 hover:text-emerald-400 transition-colors">Recursos</a>
+      </nav>
+      <span class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-3 py-1.5 rounded-full">v2.4 • Práctica Interactiva</span>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-12">
+    
+    <!-- Encabezado y Filtros Interactivos -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div class="space-y-4 max-w-2xl">
+        <span class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full text-xs font-mono text-emerald-400">✍️ Banco de Retos y Exámenes</span>
+        <h1 class="text-4xl sm:text-5xl font-extrabold font-heading">Ejercicios <span class="text-emerald-400">Prácticos</span></h1>
+        <p class="text-slate-400 text-lg">Resuelve retos basados en exámenes reales de FP. Despliega pistas o comprueba la solución paso a paso.</p>
+      </div>
+
+      <!-- Botones de Filtro por Categoría -->
+      <div id="filter-buttons" class="flex flex-wrap gap-2 text-xs font-mono">
+        <button onclick="filtrarEjercicios('todos')" class="filter-btn bg-emerald-400 text-slate-950 font-bold px-3 py-2 rounded-lg transition">Todos</button>
+        <button onclick="filtrarEjercicios('sql')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-400 hover:text-white px-3 py-2 rounded-lg transition">SQL</button>
+        <button onclick="filtrarEjercicios('java')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-400 hover:text-white px-3 py-2 rounded-lg transition">Java</button>
+        <button onclick="filtrarEjercicios('js')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-400 hover:text-white px-3 py-2 rounded-lg transition">JavaScript</button>
+        <button onclick="filtrarEjercicios('python')" class="filter-btn bg-slate-900 border border-slate-800 text-slate-400 hover:text-white px-3 py-2 rounded-lg transition">Python</button>
+      </div>
+    </div>
+
+    <!-- Contenedor de Tarjetas de Ejercicios -->
+    <div id="ejercicios-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Ejercicio 1: SQL -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="sql">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-indigo-400 bg-indigo-950/60 border border-indigo-500/30 px-2.5 py-1 rounded">SQL • BBDD</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Consultas Multitabla con JOIN y HAVING</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe una consulta SQL que devuelva el nombre del cliente y el total gastado, filtrando solo aquellos cuyo gasto supere los 500€ usando <code class="text-indigo-300">HAVING</code>.
+          </p>
+          <!-- Pista Oculta -->
+          <div id="hint-1" class="hidden bg-slate-900/90 border border-indigo-500/30 p-3 rounded-xl text-xs font-mono text-indigo-300">
+            💡 <strong>Pista:</strong> Usa <code class="text-white">INNER JOIN</code> entre <code class="text-white">clientes</code> y <code class="text-white">pedidos</code>, agrupa con <code class="text-white">GROUP BY cliente_id</code> y evalúa con <code class="text-white">HAVING SUM(precio) > 500</code>.
+          </div>
+          <!-- Solución Oculta -->
+          <div id="sol-1" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>SELECT c.nombre, SUM(p.precio) AS total</p>
+            <p>FROM clientes c JOIN pedidos p ON c.id = p.cliente_id</p>
+            <p>GROUP BY c.id, c.nombre</p>
+            <p>HAVING SUM(p.precio) > 500;</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-1')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-1')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 2: Java -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="java">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2.5 py-1 rounded">Java • POO</span>
+            <span class="text-emerald-400 font-semibold">Fácil</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Encapsulamiento y Validación en Setters</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Crea una clase <code class="text-rose-300">CuentaBancaria</code> con atributos privados <code class="text-rose-300">saldo</code> y un método <code class="text-rose-300">ingresar(double cantidad)</code> que no permita cantidades negativas.
+          </p>
+          <div id="hint-2" class="hidden bg-slate-900/90 border border-rose-500/30 p-3 rounded-xl text-xs font-mono text-rose-300">
+            💡 <strong>Pista:</strong> Dentro de <code class="text-white">ingresar</code>, añade una condición <code class="text-white">if (cantidad > 0) { this.saldo += cantidad; }</code>.
+          </div>
+          <div id="sol-2" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>public class CuentaBancaria {</p>
+            <p class="pl-4">private double saldo;</p>
+            <p class="pl-4">public void ingresar(double cantidad) {</p>
+            <p class="pl-8">if (cantidad > 0) saldo += cantidad;</p>
+            <p class="pl-4">}</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-2')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-2')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 3: JavaScript -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="js">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400 bg-amber-950/60 border border-amber-500/30 px-2.5 py-1 rounded">JavaScript • DOM</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Cambiar Clase al Pulsar un Botón</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Selecciona un elemento con id <code class="text-amber-300">#mi-tarjeta</code> y añade un evento click que alterne la clase <code class="text-amber-300">.bg-emerald-500</code> usando <code class="text-amber-300">classList.toggle()</code>.
+          </p>
+          <div id="hint-3" class="hidden bg-slate-900/90 border border-amber-500/30 p-3 rounded-xl text-xs font-mono text-amber-300">
+            💡 <strong>Pista:</strong> Usa <code class="text-white">document.querySelector('#btn')</code> y asócialo con <code class="text-white">addEventListener('click', ...)</code>.
+          </div>
+          <div id="sol-3" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>const btn = document.querySelector('#mi-boton');</p>
+            <p>const tarjeta = document.querySelector('#mi-tarjeta');</p>
+            <p>btn.addEventListener('click', () => {</p>
+            <p class="pl-4">tarjeta.classList.toggle('bg-emerald-500');</p>
+            <p>});</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-3')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-3')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 4: Python -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-sky-400 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded">Python • Algoritmos</span>
+            <span class="text-emerald-400 font-semibold">Fácil</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Filtrar Pares con List Comprehension</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Dada una lista de números <code class="text-sky-300">[1, 2, 3, 4, 5, 6]</code>, genera una nueva lista que contenga únicamente los números pares multiplicados por 10 utilizando comprensión de listas.
+          </p>
+          <div id="hint-4" class="hidden bg-slate-900/90 border border-sky-500/30 p-3 rounded-xl text-xs font-mono text-sky-300">
+            💡 <strong>Pista:</strong> La estructura es <code class="text-white">[x * 10 for x in lista if x % 2 == 0]</code>.
+          </div>
+          <div id="sol-4" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>numeros = [1, 2, 3, 4, 5, 6]</p>
+            <p>resultado = [x * 10 for x in numeros if x % 2 == 0]</p>
+            <p>print(resultado)  # [20, 40, 60]</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-4')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-4')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 5: HTML/CSS (Flexbox) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="sql">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-teal-400 bg-teal-950/60 border border-teal-500/30 px-2.5 py-1 rounded">CSS • Flexbox</span>
+            <span class="text-emerald-400 font-semibold">Fácil</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Centrado Absoluto con Flexbox</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe las propiedades CSS necesarias en un contenedor para centrar un elemento hijo tanto vertical como horizontalmente utilizando Flexbox.
+          </p>
+          <div id="hint-5" class="hidden bg-slate-900/90 border border-teal-500/30 p-3 rounded-xl text-xs font-mono text-teal-300">
+            💡 <strong>Pista:</strong> Combina <code class="text-white">display: flex</code> con <code class="text-white">justify-content: center</code> y <code class="text-white">align-items: center</code>.
+          </div>
+          <div id="sol-5" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>.contenedor {</p>
+            <p class="pl-4">display: flex;</p>
+            <p class="pl-4">justify-content: center;</p>
+            <p class="pl-4">align-items: center;</p>
+            <p class="pl-4">height: 100vh;</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-5')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-5')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 6: Docker (Docker Compose) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-sky-400 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded">Docker • DevOps</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Estructura básica de docker-compose.yml</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Diseña un archivo <code class="text-sky-300">docker-compose.yml</code> que levante un servicio web basado en <code class="text-sky-300">nginx:alpine</code> exponiendo el puerto 80 del host al 80 del contenedor.
+          </p>
+          <div id="hint-6" class="hidden bg-slate-900/90 border border-sky-500/30 p-3 rounded-xl text-xs font-mono text-sky-300">
+            💡 <strong>Pista:</strong> Define la versión, la sección <code class="text-white">services:</code>, un servicio llamado <code class="text-white">web</code> con su imagen y los <code class="text-white">ports: ["80:80"]</code>.
+          </div>
+          <div id="sol-6" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>version: '3.8'</p>
+            <p>services:</p>
+            <p class="pl-4">web:</p>
+            <p class="pl-8">image: nginx:alpine</p>
+            <p class="pl-8">ports:</p>
+            <p class="pl-12">- "80:80"</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-6')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-6')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 7: Java (ArrayList y Búsqueda) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="java">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2.5 py-1 rounded">Java • Colecciones</span>
+            <span class="text-rose-400 font-semibold">Avanzado</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Recorrer y Filtrar un ArrayList en Java</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Dado un <code class="text-rose-300">ArrayList&lt;String&gt;</code> con nombres de ciudades, escribe un bucle <code class="text-rose-300">for-each</code> que imprima únicamente aquellas ciudades que comiencen por la letra 'M'.
+          </p>
+          <div id="hint-7" class="hidden bg-slate-900/90 border border-rose-500/30 p-3 rounded-xl text-xs font-mono text-rose-300">
+            💡 <strong>Pista:</strong> Usa el método <code class="text-white">ciudad.startsWith("M")</code> dentro de tu bucle condicional.
+          </div>
+          <div id="sol-7" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>ArrayList&lt;String&gt; ciudades = new ArrayList&lt;&gt;();</p>
+            <p>ciudades.add("Madrid"); ciudades.add("Barcelona"); ciudades.add("Málaga");</p>
+            <p>for (String c : ciudades) {</p>
+            <p class="pl-4">if (c.startsWith("M")) {</p>
+            <p class="pl-8">System.out.println(c);</p>
+            <p class="pl-4">}</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-7')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-7')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 8: SQL (Subconsultas) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="sql">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-indigo-400 bg-indigo-950/60 border border-indigo-500/30 px-2.5 py-1 rounded">SQL • Subconsultas</span>
+            <span class="text-rose-400 font-semibold">Avanzado</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Empleados con Salario Superior a la Media</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe una consulta SQL que devuelva el nombre y salario de aquellos empleados cuyo salario sea mayor que el salario medio de toda la empresa.
+          </p>
+          <div id="hint-8" class="hidden bg-slate-900/90 border border-indigo-500/30 p-3 rounded-xl text-xs font-mono text-indigo-300">
+            💡 <strong>Pista:</strong> Utiliza una subconsulta dentro de la cláusula <code class="text-white">WHERE salario > (SELECT AVG(salario) FROM empleados)</code>.
+          </div>
+          <div id="sol-8" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>SELECT nombre, salario</p>
+            <p>FROM empleados</p>
+            <p>WHERE salario > (SELECT AVG(salario) FROM empleados);</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-8')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-8')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 9: Java (Matrices / Arrays Bidimensionales) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="java">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2.5 py-1 rounded">Java • Matrices</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Recorrer una Matriz Bidimensional</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe un fragmento de código en Java que declare una matriz de enteros de 3x3 y utilice bucles <code class="text-rose-300">for</code> anidados para inicializar todas sus posiciones con el valor <code class="text-rose-300">0</code>.
+          </p>
+          <div id="hint-9" class="hidden bg-slate-900/90 border border-rose-500/30 p-3 rounded-xl text-xs font-mono text-rose-300">
+            💡 <strong>Pista:</strong> Necesitarás un bucle externo para las filas (<code class="text-white">i</code>) y un bucle interno para las columnas (<code class="text-white">j</code>).
+          </div>
+          <div id="sol-9" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>int[][] matriz = new int[3][3];</p>
+            <p>for (int i = 0; i &lt; matriz.length; i++) {</p>
+            <p class="pl-4">for (int j = 0; j &lt; matriz[i].length; j++) {</p>
+            <p class="pl-8">matriz[i][j] = 0;</p>
+            <p class="pl-4">}</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-9')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-9')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 10: JavaScript (Manipulación de Arrays con map) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="js">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400 bg-amber-950/60 border border-amber-500/30 px-2.5 py-1 rounded">JavaScript • ES6</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Transformar un Array con .map()</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Dado un array de precios <code class="text-amber-300">[10, 20, 30]</code>, utiliza el método funcional <code class="text-amber-300">.map()</code> para generar un nuevo array aplicando un IVA del 21% a cada elemento.
+          </p>
+          <div id="hint-10" class="hidden bg-slate-900/90 border border-amber-500/30 p-3 rounded-xl text-xs font-mono text-amber-300">
+            💡 <strong>Pista:</strong> La sintaxis es <code class="text-white">precios.map(p => p * 1.21)</code>.
+          </div>
+          <div id="sol-10" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>const precios = [10, 20, 30];</p>
+            <p>const conIva = precios.map(p => Number((p * 1.21).toFixed(2)));</p>
+            <p>console.log(conIva); // [12.1, 24.2, 36.3]</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-10')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-10')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 11: Python (Diccionarios y Bucles) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-sky-400 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded">Python • Diccionarios</span>
+            <span class="text-emerald-400 font-semibold">Fácil</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Recorrer Claves y Valores en Python</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Dado un diccionario <code class="text-sky-350">alumno = {"nombre": "Lucía", "edad": 22, "curso": "DAW"}</code>, escribe un bucle utilizando <code class="text-sky-300">.items()</code> que imprima cada clave y su valor asociado.
+          </p>
+          <div id="hint-11" class="hidden bg-slate-900/90 border border-sky-500/30 p-3 rounded-xl text-xs font-mono text-sky-300">
+            💡 <strong>Pista:</strong> Utiliza la estructura <code class="text-white">for clave, valor in alumno.items(): print(f"{clave}: {valor}")</code>.
+          </div>
+          <div id="sol-11" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>alumno = {"nombre": "Lucía", "edad": 22, "curso": "DAW"}</p>
+            <p>for clave, valor in alumno.items():</p>
+            <p class="pl-4">print(f"{clave} -> {valor}")</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-11')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-11')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 12: SQL (Transacciones y COMMIT/ROLLBACK) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="sql">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-indigo-400 bg-indigo-950/60 border border-indigo-500/30 px-2.5 py-1 rounded">SQL • Transacciones</span>
+            <span class="text-rose-400 font-semibold">Avanzado</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Gestión Segura con ROLLBACK</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe una secuencia de comandos SQL que inicie una transacción, ejecute una actualización de saldo en dos cuentas bancarias y aplique un <code class="text-indigo-300">ROLLBACK</code> si ocurre algún error de validación.
+          </p>
+          <div id="hint-12" class="hidden bg-slate-900/90 border border-indigo-500/30 p-3 rounded-xl text-xs font-mono text-indigo-300">
+            💡 <strong>Pista:</strong> Comienza con <code class="text-white">START TRANSACTION;</code> (o <code class="text-white">BEGIN;</code>), realiza las operaciones y finaliza con <code class="text-white">COMMIT;</code> o <code class="text-white">ROLLBACK;</code>.
+          </div>
+          <div id="sol-12" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>START TRANSACTION;</p>
+            <p>UPDATE cuentas SET saldo = saldo - 100 WHERE id = 1;</p>
+            <p>UPDATE cuentas SET saldo = saldo + 100 WHERE id = 2;</p>
+            <p>-- Si todo va bien:</p>
+            <p>COMMIT;</p>
+            <p>-- Si ocurre un fallo se ejecutaría: ROLLBACK;</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-12')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-12')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 13: Java (Interfaces y Polimorfismo) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="java">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-rose-400 bg-rose-950/60 border border-rose-500/30 px-2.5 py-1 rounded">Java • Interfaces</span>
+            <span class="text-rose-400 font-semibold">Avanzado</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Implementación de una Interfaz</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Define una interfaz llamada <code class="text-rose-300">Imprimible</code> con un método abstracto <code class="text-rose-300">imprimir()</code> y haz que una clase <code class="text-rose-300">Factura</code> la implemente.
+          </p>
+          <div id="hint-13" class="hidden bg-slate-900/90 border border-rose-500/30 p-3 rounded-xl text-xs font-mono text-rose-300">
+            💡 <strong>Pista:</strong> Usa la palabra reservada <code class="text-white">interface</code> para declararla y <code class="text-white">implements Imprimible</code> en la clase.
+          </div>
+          <div id="sol-13" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>public interface Imprimible {</p>
+            <p class="pl-4">void imprimir();</p>
+            <p>}</p>
+            <br>
+            <p>public class Factura implements Imprimible {</p>
+            <p class="pl-4">@Override</p>
+            <p class="pl-4">public void imprimir() {</p>
+            <p class="pl-8">System.out.println("Imprimiendo factura oficial...");</p>
+            <p class="pl-4">}</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-13')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-13')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 14: JavaScript (Consumo de API con Fetch) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="js">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-amber-400 bg-amber-950/60 border border-amber-500/30 px-2.5 py-1 rounded">JavaScript • Fetch API</span>
+            <span class="text-rose-400 font-semibold">Avanzado</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Petición HTTP Asíncrona con Async/Await</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe una función asíncrona en JavaScript que consulte una URL mediante <code class="text-amber-300">fetch()</code>, convierta la respuesta a formato JSON y capture posibles errores con un bloque <code class="text-amber-300">try/catch</code>.
+          </p>
+          <div id="hint-14" class="hidden bg-slate-900/90 border border-amber-500/30 p-3 rounded-xl text-xs font-mono text-amber-300">
+            💡 <strong>Pista:</strong> Recuerda usar <code class="text-white">async/await</code> tanto en la llamada a <code class="text-white">fetch</code> como al parsear con <code class="text-white">res.json()</code>.
+          </div>
+          <div id="sol-14" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>async function cargarDatos() {</p>
+            <p class="pl-4">try {</p>
+            <p class="pl-8">const res = await fetch('https://api.example.com/items');</p>
+            <p class="pl-8">const data = await res.json();</p>
+            <p class="pl-8">console.log(data);</p>
+            <p class="pl-4">} catch (error) {</p>
+            <p class="pl-8">console.error("Fallo en la red:", error);</p>
+            <p class="pl-4">}</p>
+            <p>}</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-14')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-14')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+      <!-- Ejercicio 15: Python (Manejo de Ficheros de Texto) -->
+      <div class="ejercicio-card bg-[#0A0E17] border border-slate-800 rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between text-xs font-mono">
+            <span class="text-sky-400 bg-sky-950/60 border border-sky-500/30 px-2.5 py-1 rounded">Python • Ficheros</span>
+            <span class="text-amber-400 font-semibold">Intermedio</span>
+          </div>
+          <h2 class="text-xl font-bold font-heading">Lectura Segura de un Archivo de Texto</h2>
+          <p class="text-slate-400 text-sm leading-relaxed">
+            Escribe un script en Python que abra un archivo llamado <code class="text-sky-300">datos.txt</code> en modo lectura utilizando el gestor de contexto seguro <code class="text-sky-300">with</code> e imprima todas sus líneas por pantalla.
+          </p>
+          <div id="hint-15" class="hidden bg-slate-900/90 border border-sky-500/30 p-3 rounded-xl text-xs font-mono text-sky-300">
+            💡 <strong>Pista:</strong> Utiliza la estructura <code class="text-white">with open('datos.txt', 'r', encoding='utf-8') as f:</code> para cerrar el fichero automáticamente.
+          </div>
+          <div id="sol-15" class="hidden bg-[#030509] border border-emerald-500/30 p-4 rounded-xl text-xs font-mono text-emerald-300 space-y-1 overflow-x-auto">
+            <p>try:</p>
+            <p class="pl-4">with open('datos.txt', 'r', encoding='utf-8') as archivo:</p>
+            <p class="pl-8">for linea in archivo:</p>
+            <p class="pl-12">print(linea.strip())</p>
+            <p>except FileNotFoundError:</p>
+            <p class="pl-4">print("El archivo no existe.")</p>
+          </div>
+        </div>
+        <div class="pt-6 mt-6 border-t border-slate-800/60 flex items-center justify-between text-xs font-mono">
+          <button onclick="toggleElement('hint-15')" class="text-slate-400 hover:text-white transition">💡 Pista</button>
+          <button onclick="toggleElement('sol-15')" class="bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500/20 px-3 py-1.5 rounded-lg transition font-bold">Ver Solución</button>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <footer class="border-t border-slate-800/80 bg-[#030509] py-8 text-slate-400 text-xs font-mono text-center">
+    DAWfacil — Banco de Ejercicios Interactivos
+  </footer>
+
+  <!-- Script de Interactividad (Filtros y Pistas) -->
+  <script>
+    function toggleElement(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+
+    function filtrarEjercicios(categoria) {
+      // Cambiar estilos de los botones de filtro
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.className = "filter-btn bg-slate-900 border border-slate-800 text-slate-400 hover:text-white px-3 py-2 rounded-lg transition";
+      });
+      event.target.className = "filter-btn bg-emerald-400 text-slate-950 font-bold px-3 py-2 rounded-lg transition";
+
+      // Filtrar tarjetas
+      document.querySelectorAll('.ejercicio-card').forEach(card => {
+        if (categoria === 'todos' || card.getAttribute('data-category') === categoria) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
